@@ -1,6 +1,15 @@
 # CodePrompt
 
-CodePrompt is a tool designed to generate prompts based on provided code patterns. It assists users in quickly reviewing and understanding code pieces and patterns.
+**CodePrompt** is a tool that crafts GPT prompts using your local code files. With the flexibility of `glob` patterns, you can effortlessly specify which files to incorporate into your prompt.
+
+
+## Example
+
+```bash
+code-prompt generate '**/*.ts' -m "your prompt"
+```
+
+This command will search for all TypeScript files in your directory and its subdirectories. It then crafts a GPT prompt using the contents of these files, followed by the message "your prompt".
 
 
 | CLI Output | Prompt Result |
@@ -8,67 +17,63 @@ CodePrompt is a tool designed to generate prompts based on provided code pattern
 | ![Code Prompt CLI Example](./assets/CodePromptCliExample.png) | ![Prompt Result](./assets/PromptResult.png) |
 
 
+## Key Features
 
-## Features
+- **GPT Prompts**: Craft prompts using code from your local files.
+- **File Selection**: Use `glob` patterns to easily select files for prompts.
+- **Custom Messaging**: Enhance prompts with custom prefixes or instructions.
+- **Token Count**: Employ `tiktoken` for accurate token metrics.
+- **Clipboard Integration**: Auto-copy results for quick sharing.
+- **CLI**: Efficient command-line interface for prompt generation.
 
-- **Glob Pattern Search**: Use glob patterns to specify which files to include in the prompt.
-- **Prefixing and Prompting**: Prefix the code content and add specific prompt messages after.
-- **Token Counting**: Utilizes the `tiktoken` library to determine the token length of text and code.
-- **Clipboard Integration**: Automatically copy the generated prompt to the clipboard for quick sharing and use.
-- **CLI Interface**: A handy CLI tool for quick execution.
-
-## Installation
+## Quick Installation
 
 ```bash
 npm install -g code-prompt
 ```
 
-## Usage
+## How to Use
 
 ### As a Library
 
-You can import and use the main `CodePrompt` function as shown in `index.test.ts`.
-
-Example:
+Incorporate `CodePrompt` directly into your projects for a more programmatic approach.
 
 ```typescript
 import CodePrompt from 'code-prompt'
 
 const result = await CodePrompt('**/*.ts', {
-  prefixPrompt: 'I am working on xxx project.',
-  prompt: 'Help me edit xx.ts, add xxx feature',
+  prefixPrompt: 'Considering the following code from project XXX...',
+  prompt: 'Given the xxx function in xx.ts, how could we optimize it further?',
   copyToClipboard: true,
   cwd: process.cwd(),
 })
 ```
 
-### CLI Tool
+### Command-Line Interface
 
-You can also use CodePrompt as a CLI tool:
+Dive straight into generating prompts with our command-line tool:
 
 ```bash
 code-prompt generate <pattern> [options]
 ```
 
 #### Options:
+- `-p, --prefixPrompt <prefixPrompt>`: Set the stage with a custom introduction.
+- `-m, --promptMessage <promptMessage>`: The heart of your query or instruction.
+- `-i, --ignore <ignore>`: Exclude specific patterns (default: 'node_modules/**').
+- `-e, --encodingModel <encodingModel>`: Opt for your desired encoding model (default: 'gpt-4').
+- `-c, --copyToClipboard`: Auto-copy results for swift actions (default: true).
+- `--cwd <cwd>`: Set your current directory (default: process's current working directory).
 
-- `-p, --prefixPrompt <prefixPrompt>`: Prefix for the prompt
-- `-m, --promptMessage <promptMessage>`: Main prompt message
-- `-i, --ignore <ignore>`: Pattern to ignore (default: 'node_modules/**')
-- `-e, --encodingModel <encodingModel>`: Encoding model (default: 'gpt-4')
-- `-c, --copyToClipboard`: Copy result to clipboard (default: true)
-- `--cwd <cwd>`: Current working directory (default: process's current working directory)
-
-Example:
-
+#### Example:
 ```bash
-code-prompt generate '**/*.ts' -p "I am working on a project." -m "Help me review this code."
+code-prompt generate '**/*.ts' -p "Examining project Y's codebase..." -m "How do we refactor this section for efficiency?"
 ```
 
-## Contributing
+## Join the Community!
 
-Feel free to open issues and submit pull requests to improve CodePrompt.
+Help us in making CodePrompt even better. Open issues, suggest enhancements, or contribute directly by submitting pull requests.
 
 ## License
 
-[MIT License](LICENSE.md)
+Licensed under the [MIT License](LICENSE.md).
