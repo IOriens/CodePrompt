@@ -11,8 +11,12 @@
   "bin": {
     "code-prompt": "./dist/bin.js"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IOriens/CodePrompt.git"
+  },
+  "keywords": ["prompt", "gpt", "prompt-generator"],
+  "author": "Junjie Ding",
   "license": "ISC",
   "dependencies": {
     "clipboardy": "^3.0.0",
