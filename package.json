@@ -1,6 +1,6 @@
 {
   "name": "code-prompt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -14,17 +14,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@tsconfig/node18": "^18.2.2",
-    "@types/fs-extra": "^11.0.2",
-    "typescript": "^5.2.2"
-  },
   "dependencies": {
-    "@types/node": "18",
     "clipboardy": "^3.0.0",
     "commander": "^11.1.0",
     "fs-extra": "^11.1.1",
     "glob": "^10.3.10",
     "tiktoken": "^1.0.10"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2",
+    "@types/fs-extra": "^11.0.2",
+    "@types/node": "18",
+    "typescript": "^5.2.2"
   }
 }
