@@ -7,7 +7,7 @@ async function test() {
       prefixPrompt: 'I am working on a prompt generating project.',
       // prompt: `Edit index.test.ts, make the log print more clear`,
       prompt: 'Help me write a README.md file for this project.',
-      copyToClipboard: true,
+      // copyToClipboard: true,
       cwd: process.cwd(),
     },
   )
