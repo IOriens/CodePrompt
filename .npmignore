@@ -2,3 +2,4 @@ assets
 src
 .history
 *.tgz
+.github
